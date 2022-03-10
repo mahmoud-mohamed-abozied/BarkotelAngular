@@ -10,7 +10,7 @@ export interface book {
 
 @Injectable()
 export class bookService {
-  bookUrl = 'https://localhost:44337/api/Books/{id}';
+  bookUrl = 'https://localhost:44337/api/Books';
   getBooks() {
     return this.http.get<book[]>(this.bookUrl);
   }
