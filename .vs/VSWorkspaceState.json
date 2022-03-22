@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\books",
+    "\\src\\app\\header"
   ],
-  "SelectedNode": "\\src",
+  "SelectedNode": "\\src\\app\\books\\books.component.css",
   "PreviewInSolutionExplorer": false
 }

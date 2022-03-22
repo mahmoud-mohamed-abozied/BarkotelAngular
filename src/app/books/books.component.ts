@@ -1,24 +1,32 @@
 
 import { Component, OnInit } from '@angular/core';
-//import { books } from '../books'
-import { book, bookService } from '../clientService';
+import { Book } from '../books/Book'
+import { bookService } from '../clientService';
 
 @Component({
   selector: 'app-books',
-  providers: [bookService],
+  /*providers: [bookService],*/
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-  //dataSource: book;
-  error: any;
-  headers: string[] = [];
-  books: book[] | undefined;
+  Books: Book[] = [];
+  /*  modalTitle: any;
+    activateAddEditStuCom: boolean = false;
+    student: any;*/
   constructor(private bookService: bookService) { }
 
   ngOnInit(): void {
+    this.bookService.getBooks().subscribe((data: Book[]) => {
+      this.Books = data;
+    });
   }
-  clear() {
+  /*refreshBooksList() {
+    this.bookService.getBooks().subscribe(data => {
+      this.Books = data;
+    });
+  }*/
+ /* clear() {
     this.books = undefined;
     this.error = undefined;
     this.headers = []
@@ -31,11 +39,10 @@ export class BooksComponent implements OnInit {
           this.books = data,
         error: (error:any) => this.error = Error,
       })
-  }
+  }*/
 
   /*getType(val: any): string {
     return val instanceof Date ? 'date' : Array.isArray(val) ? 'array' :
   }*/
-}
 
-  
+}
